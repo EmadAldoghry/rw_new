@@ -1,0 +1,584 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.478949999999998</latitude_deg>
+      <longitude_deg>19.057784999999999</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='rw'>
+      <link name='base_link'>
+        <inertial>
+          <pose>3.466673613063164e-20 0 -3.1974420463629099e-05 0 0 0</pose>
+          <mass>50.039999999999992</mass>
+          <inertia>
+            <ixx>0.51049564397836744</ixx>
+            <ixy>0</ixy>
+            <ixz>-5.5466777809010611e-23</ixz>
+            <iyy>0.54780611854908723</iyy>
+            <iyz>0</iyz>
+            <izz>0.51817386484560002</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/base_link.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__back_left_caster_wheel_link_collision_1'>
+          <pose>0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.11</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__back_right_caster_wheel_link_collision_2'>
+          <pose>0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.11</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__front_left_caster_wheel_link_collision_3'>
+          <pose>-0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.11</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__front_right_caster_wheel_link_collision_4'>
+          <pose>-0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.11</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__laser_frame_collision_5'>
+          <pose>-0.47999999999999998 5.8e-05 0.40056000000000003 1.5707963267948959 -5.5511151231257827e-17 1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/lidar.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/base_link.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.941124976 0.941124976 0.941124976 1</diffuse>
+            <ambient>0.941124976 0.941124976 0.941124976 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__back_left_caster_wheel_link_visual_1'>
+          <pose>0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/back_left_Cwheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__back_right_caster_wheel_link_visual_2'>
+          <pose>0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/back_right_Cwheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__camera_link_visual_3'>
+          <pose>-0.48299999999999998 -0.00031300000000000002 0.55329399999999995 0 1.5707963267948966 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/front_camera.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__front_left_caster_wheel_link_visual_4'>
+          <pose>-0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/front_left_Cwheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__front_right_caster_wheel_link_visual_5'>
+          <pose>-0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/front_right_Cwheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__laser_frame_visual_6'>
+          <pose>-0.47999999999999998 5.8e-05 0.40056000000000003 1.5707963267948959 -5.5511151231257827e-17 1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/lidar.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <sensor name='camera' type='camera'>
+          <pose>-0.48299999999999998 -0.00031300000000000002 0.55329399999999995 2.65359e-06 3.673210000000001e-06 -3.1415899999999999</pose>
+          <topic>camera/image</topic>
+          <update_rate>20</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <camera>
+            <pose>0 0 0 0 0 0</pose>
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>RGB_INT8</format>
+              <anti_aliasing>4</anti_aliasing>
+            </image>
+            <camera_info_topic>__default__</camera_info_topic>
+            <trigger_topic></trigger_topic>
+            <triggered>false</triggered>
+            <clip>
+              <near>0.10000000000000001</near>
+              <far>15</far>
+            </clip>
+            <save enabled='false'>
+              <path>__default__</path>
+            </save>
+            <visibility_mask>4294967295</visibility_mask>
+            <noise>
+              <type>none</type>
+              <mean>0</mean>
+              <stddev>0</stddev>
+            </noise>
+            <distortion>
+              <k1>0</k1>
+              <k2>0</k2>
+              <k3>0</k3>
+              <p1>0</p1>
+              <p2>0</p2>
+              <center>0.5 0.5</center>
+            </distortion>
+            <lens>
+              <type>stereographic</type>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>1.5707963267948966</cutoff_angle>
+              <env_texture_size>256</env_texture_size>
+            </lens>
+            <optical_frame_id></optical_frame_id>
+          </camera>
+        </sensor>
+        <sensor name='gpu_lidar' type='gpu_lidar'>
+          <pose>-0.47999999999999998 5.8e-05 0.40056000000000003 -3.1415899999999999 -3.673210000000001e-06 3.1415899999999999</pose>
+          <topic>scan</topic>
+          <update_rate>30</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>50</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.78539816339744828</min_angle>
+                <max_angle>0.78539816339744828</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>50</samples>
+                <min_angle>-0.78539816339744828</min_angle>
+                <max_angle>0.39269908169872414</max_angle>
+                <resolution>1</resolution>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.050000000000000003</min>
+              <max>70</max>
+              <resolution>0.01</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+            <visibility_mask>4294967295</visibility_mask>
+          </lidar>
+        </sensor>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='left_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>left_wheel_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>100</effort>
+            <velocity>300</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>1</damping>
+            <friction>1</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='left_wheel_link'>
+        <pose>1.1368683772161603e-13 -0.5200000000000955 3.5527136788005009e-15 2.1035258127319173e-17 -0.16641261293395532 -1.7543165512864328e-18</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2</mass>
+          <inertia>
+            <ixx>0.10000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.10000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.20000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_wheel_link_collision'>
+          <pose>0 -0.029999999999999999 0 -1.5707963267948957 1.5707963267948966 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.029999999999999999</length>
+              <radius>0.14999999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='left_wheel_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/left_wheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='right_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>right_wheel_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>100</effort>
+            <velocity>300</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>1</damping>
+            <friction>1</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='right_wheel_link'>
+        <pose>2.8421709430404007e-13 0.51999999999993207 0 -9.4323797843552986e-18 -0.16773058929264267 1.1220679050752125e-16</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>2</mass>
+          <inertia>
+            <ixx>0.10000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.10000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.20000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_wheel_link_collision'>
+          <pose>0 0.029999999999999999 0 -1.5707963267948957 1.5707963267948966 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.029999999999999999</length>
+              <radius>0.14999999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='right_wheel_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/aldoghry/ros2/rw_ws/install/rw/share/rw/meshes/right_wheel.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 0 1</diffuse>
+            <ambient>0 0 0 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+        <right_joint>right_wheel_joint</right_joint>
+        <left_joint>left_wheel_joint</left_joint>
+        <wheel_separation>1.07</wheel_separation>
+        <wheel_radius>0.15</wheel_radius>
+        <odom_publish_frequency>30</odom_publish_frequency>
+        <max_velocity>40.0</max_velocity>
+        <max_linear_acceleration>10</max_linear_acceleration>
+        <min_linear_acceleration>-10</min_linear_acceleration>
+        <max_angular_acceleration>20</max_angular_acceleration>
+        <min_angular_acceleration>-20</min_angular_acceleration>
+        <max_linear_velocity>40</max_linear_velocity>
+        <min_linear_velocity>-40</min_linear_velocity>
+        <max_angular_velocity>10</max_angular_velocity>
+        <min_angular_velocity>-10</min_angular_velocity>
+        <topic>cmd_vel</topic>
+        <odom_topic>odom</odom_topic>
+        <tf_topic>tf</tf_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_link</child_frame_id>
+        <odom_publish_frequency>30</odom_publish_frequency>
+      </plugin>
+      <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'>
+        <topic>joint_states</topic>
+        <joint_name>right_wheel_joint</joint_name>
+        <joint_name>left_wheel_joint</joint_name>
+      </plugin>
+      <frame name='back_left_caster_wheel_joint' attached_to='base_link'>
+        <pose>0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+      </frame>
+      <frame name='back_left_caster_wheel_link' attached_to='back_left_caster_wheel_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='back_right_caster_wheel_joint' attached_to='base_link'>
+        <pose>0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+      </frame>
+      <frame name='back_right_caster_wheel_link' attached_to='back_right_caster_wheel_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_footprint_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_footprint' attached_to='base_footprint_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='camera_optical_joint' attached_to='camera_link'>
+        <pose>0 0 0 -3.1415926535897931 1.5707963267948966 0</pose>
+      </frame>
+      <frame name='camera_link_optical' attached_to='camera_optical_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='camera_joint' attached_to='base_link'>
+        <pose>-0.48299999999999998 -0.00031300000000000002 0.55329399999999995 0 1.5707963267948966 0</pose>
+      </frame>
+      <frame name='camera_link' attached_to='camera_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='front_left_caster_wheel_joint' attached_to='base_link'>
+        <pose>-0.43994800000000001 0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+      </frame>
+      <frame name='front_left_caster_wheel_link' attached_to='front_left_caster_wheel_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='front_right_caster_wheel_joint' attached_to='base_link'>
+        <pose>-0.43994800000000001 -0.49070599999999998 -0.040000000000000001 0 0 0</pose>
+      </frame>
+      <frame name='front_right_caster_wheel_link' attached_to='front_right_caster_wheel_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='lidar_optical_joint' attached_to='laser_frame'>
+        <pose>0 0 0 1.5707963267948957 1.5707963267948966 0</pose>
+      </frame>
+      <frame name='lidar_link_optical' attached_to='lidar_optical_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='laser_joint' attached_to='base_link'>
+        <pose>-0.47999999999999998 5.8e-05 0.40056000000000003 1.5707963267948959 -5.5511151231257827e-17 1.5707963267948959</pose>
+      </frame>
+      <frame name='laser_frame' attached_to='laser_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>288.91520112140205 -147.84889810976409 -32.542922035206281 -0.0021649106994647274 -0.019772859484402196 2.5704235368146011</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/aldoghry/.gz/fuel/fuel.gazebosim.org/openrobotics/models/sonoma raceway/3</uri>
+      <name>sonoma_raceway</name>
+      <pose>0 0 -40 0 0 0</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>
