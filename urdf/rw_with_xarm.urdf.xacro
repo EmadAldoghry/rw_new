@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="mbot_with_xarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="rw_with_xarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default=""/>
   <xacro:arg name="hw_ns" default="xarm"/>
   <xacro:arg name="limited" default="false"/>
@@ -46,8 +46,8 @@
 
   <xacro:arg name="kinematics_suffix" default=""/>
 
-  <xacro:include filename="$(find mbot_demo)/urdf/mbot_macro.xacro" />
-  <xacro:mbot_macro ros2_control_plugin="$(arg ros2_control_plugin)" />
+  <xacro:include filename="$(find rw)/urdf/rw_macro.xacro" />
+  <xacro:rw_macro ros2_control_plugin="$(arg ros2_control_plugin)" />
 
   <!-- load xarm device -->
   <xacro:include filename="$(find xarm_description)/urdf/xarm_device_macro.xacro" />

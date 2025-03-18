@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="mbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="rw" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- PROPERTY LIST -->
   <xacro:property name="M_PI" value="3.1415926"/>
@@ -102,7 +102,7 @@
     </link>
   </xacro:macro>
 
-  <xacro:macro name="mbot_urdf">
+  <xacro:macro name="rw_urdf">
     <link name="base_footprint">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />

@@ -54,7 +54,7 @@ def launch_setup(context, *args, **kwargs):
 
     # gazebo launch
     # gazebo_ros/launch/gazebo.launch.py
-    xarm_gazebo_world = PathJoinSubstitution([FindPackageShare('mbot_demo'), 'worlds', 'empty.world'])
+    xarm_gazebo_world = PathJoinSubstitution([FindPackageShare('rw'), 'worlds', 'empty.world'])
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(PathJoinSubstitution([FindPackageShare('gazebo_ros'), 'launch', 'gazebo.launch.py'])),
         launch_arguments={
@@ -71,7 +71,7 @@ def launch_setup(context, *args, **kwargs):
         output='screen',
         arguments=[
             '-topic', 'robot_description',
-            '-entity', 'mbot_with_xarm',
+            '-entity', 'rw_with_xarm',
         ],
         parameters=[{'use_sim_time': True}],
     )
@@ -108,7 +108,7 @@ def launch_setup(context, *args, **kwargs):
     controllers = [
         'joint_state_broadcaster',
         '{}{}_traj_controller'.format(prefix.perform(context), xarm_type),
-        'mbot_traj_controller'
+        'rw_traj_controller'
     ]
     if robot_type.perform(context) != 'lite' and add_gripper.perform(context) in ('True', 'true'):
         controllers.append('{}{}_gripper_traj_controller'.format(prefix.perform(context), robot_type.perform(context)))

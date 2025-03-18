@@ -8,9 +8,9 @@ controller_manager:
     xarm6_traj_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    # mbot_traj_controller:
+    # rw_traj_controller:
     #   type: joint_trajectory_controller/JointTrajectoryController
-    mbot_traj_controller:
+    rw_traj_controller:
       type: diff_drive_controller/DiffDriveController
 
 xarm6_traj_controller:
@@ -41,7 +41,7 @@ xarm6_traj_controller:
     state_publish_rate: 25.0
     action_monitor_rate: 10.0
 
-# mbot_traj_controller:
+# rw_traj_controller:
 #   ros__parameters:
 #     command_interfaces:
 #       - position
@@ -61,7 +61,7 @@ xarm6_traj_controller:
 #     state_publish_rate: 25.0
 #     action_monitor_rate: 10.0
 
-mbot_traj_controller:
+rw_traj_controller:
   ros__parameters:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]

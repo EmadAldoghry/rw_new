@@ -38,7 +38,7 @@ def launch_setup(context, *args, **kwargs):
     xarm_type = '{}{}'.format(robot_type.perform(context), dof.perform(context) if robot_type.perform(context) in ('xarm', 'lite') else '')
 
     ros2_control_params = generate_ros2_control_params_temp_file(
-        os.path.join(get_package_share_directory('mbot_demo'), 'config', 'ros2_controllers.yaml'),
+        os.path.join(get_package_share_directory('rw'), 'config', 'ros2_controllers.yaml'),
         prefix=prefix.perform(context), 
         add_gripper=add_gripper.perform(context) in ('True', 'true'),
         add_bio_gripper=add_bio_gripper.perform(context) in ('True', 'true'),
@@ -46,9 +46,9 @@ def launch_setup(context, *args, **kwargs):
         robot_type=robot_type.perform(context)
     )
 
-    pkg_path = os.path.join(get_package_share_directory('mbot_demo'))
-    urdf_file = os.path.join(pkg_path, 'urdf', 'mbot_with_xarm.urdf.xacro')
-    srdf_file = os.path.join(pkg_path, 'srdf', 'mbot_with_xarm.srdf.xacro')
+    pkg_path = os.path.join(get_package_share_directory('rw'))
+    urdf_file = os.path.join(pkg_path, 'urdf', 'rw_with_xarm.urdf.xacro')
+    srdf_file = os.path.join(pkg_path, 'srdf', 'rw_with_xarm.srdf.xacro')
 
     controllers_file = os.path.join(pkg_path, 'config', 'controllers.yaml')
     joint_limits_file = os.path.join(pkg_path, 'config', 'joint_limits.yaml')
@@ -100,13 +100,13 @@ def launch_setup(context, *args, **kwargs):
             'attach_rpy': attach_rpy,
             'use_sim_time': 'false',
             'moveit_config_dump': yaml.dump(moveit_config.to_dict()),
-            'rviz_config': PathJoinSubstitution([FindPackageShare('mbot_demo'), 'rviz', 'moveit.rviz'])
+            'rviz_config': PathJoinSubstitution([FindPackageShare('rw'), 'rviz', 'moveit.rviz'])
         }.items(),
     )
 
     controllers = [
         '{}{}_traj_controller'.format(prefix.perform(context), xarm_type),
-        'mbot_traj_controller'
+        'rw_traj_controller'
     ]
     if add_gripper.perform(context) in ('True', 'true') and robot_type.perform(context) != 'lite':
         controllers.append('{}{}_gripper_traj_controller'.format(prefix.perform(context), robot_type.perform(context)))

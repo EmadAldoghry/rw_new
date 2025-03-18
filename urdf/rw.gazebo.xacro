@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<robot name="mbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="mbot_gazebo" params="">
+<robot name="rw" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="rw_gazebo" params="">
     <gazebo reference="base_footprint">
       <turnGravityOff>false</turnGravityOff>
     </gazebo>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<robot name="mbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="mbot_ros2_control" params="ros2_control_plugin:='uf_robot_hardware/UFRobotFakeSystemHardware'">
-    <ros2_control name="mbot_ros2_control" type="system">
+<robot name="rw" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="rw_ros2_control" params="ros2_control_plugin:='uf_robot_hardware/UFRobotFakeSystemHardware'">
+    <ros2_control name="rw_ros2_control" type="system">
       <hardware>
         <plugin>${ros2_control_plugin}</plugin>
       </hardware>

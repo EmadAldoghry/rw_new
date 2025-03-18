@@ -24,7 +24,7 @@ xarm6:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-# mbot:
+# rw:
 #   default_planner_config: RRTConnect
 #   planner_configs:
 #     - SBL

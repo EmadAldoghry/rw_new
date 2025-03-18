@@ -38,7 +38,7 @@ def launch_setup(context, *args, **kwargs):
     ros2_control_plugin = 'gz_ros2_control/GazeboSimSystem'
 
     ros2_control_params = generate_ros2_control_params_temp_file(
-        os.path.join(get_package_share_directory('mbot_demo'), 'config', 'ros2_controllers.yaml'),
+        os.path.join(get_package_share_directory('rw'), 'config', 'ros2_controllers.yaml'),
         prefix=prefix.perform(context), 
         add_gripper=add_gripper.perform(context) in ('True', 'true'),
         add_bio_gripper=add_bio_gripper.perform(context) in ('True', 'true'),
@@ -48,9 +48,9 @@ def launch_setup(context, *args, **kwargs):
         robot_type=robot_type.perform(context)
     )
 
-    pkg_path = os.path.join(get_package_share_directory('mbot_demo'))
-    urdf_file = os.path.join(pkg_path, 'urdf', 'mbot_with_xarm.urdf.xacro')
-    srdf_file = os.path.join(pkg_path, 'srdf', 'mbot_with_xarm.srdf.xacro')
+    pkg_path = os.path.join(get_package_share_directory('rw'))
+    urdf_file = os.path.join(pkg_path, 'urdf', 'rw_with_xarm.urdf.xacro')
+    srdf_file = os.path.join(pkg_path, 'srdf', 'rw_with_xarm.srdf.xacro')
 
     controllers_file = os.path.join(pkg_path, 'config', 'controllers.yaml')
     joint_limits_file = os.path.join(pkg_path, 'config', 'joint_limits.yaml')
@@ -97,22 +97,22 @@ def launch_setup(context, *args, **kwargs):
             'show_rviz': 'false',
             'use_sim_time': 'true',
             'moveit_config_dump': moveit_config_dump,
-            'rviz_config': PathJoinSubstitution([FindPackageShare('mbot_demo'), 'rviz', 'moveit.rviz'])
+            'rviz_config': PathJoinSubstitution([FindPackageShare('rw'), 'rviz', 'moveit.rviz'])
         }.items(),
     )
 
     # robot gazebo launch
-    # mbot_demo/launch/_robot_on_mbot_gazebo.launch.py
+    # rw/launch/_robot_on_rw_gazebo.launch.py
     robot_gazebo_launch = IncludeLaunchDescription(
-        # PythonLaunchDescriptionSource(PathJoinSubstitution([FindPackageShare('mbot_demo'), 'launch', '_robot_on_mbot_gazebo.launch.py'])),
-        PythonLaunchDescriptionSource(PathJoinSubstitution([FindPackageShare('mbot_demo'), 'launch', '_robot_on_mbot_gz.launch.py'])),
+        # PythonLaunchDescriptionSource(PathJoinSubstitution([FindPackageShare('rw'), 'launch', '_robot_on_rw_gazebo.launch.py'])),
+        PythonLaunchDescriptionSource(PathJoinSubstitution([FindPackageShare('rw'), 'launch', '_robot_on_rw_gz.launch.py'])),
         launch_arguments={
             'dof': dof,
             'robot_type': robot_type,
             'prefix': prefix,
             'moveit_config_dump': moveit_config_dump,
             'show_rviz': 'true',
-            'rviz_config': PathJoinSubstitution([FindPackageShare('mbot_demo'), 'rviz', 'moveit.rviz'])
+            'rviz_config': PathJoinSubstitution([FindPackageShare('rw'), 'rviz', 'moveit.rviz'])
         }.items(),
     )
 
