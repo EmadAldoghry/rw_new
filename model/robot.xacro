@@ -2,9 +2,6 @@
 
 <robot name="rw" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find xarm_description)/urdf/xarm6/xarm6_robot_macro.xacro" /> 
-    <xacro:xarm6_urdf prefix="xarm_" />
-
     <!-- Robot Parameters -->
     <xacro:property name="PI" value="3.14159265"/>
     <xacro:property name="body_length" value="0.96"/>
@@ -98,15 +95,7 @@
         <mu2>1.0</mu2>
     </gazebo>
 
-    <!-- Instantiate xArm6 -->
-    <xacro:xarm6_urdf prefix="xarm_" />
-
-    <!-- Joint to attach xArm6 to base_link -->
-    <joint name="base_to_xarm_joint" type="fixed">
-        <origin xyz="0.48 0 0.5" rpy="0 0 0" />
-        <parent link="base_link" />
-        <child link="xarm_link_base" />
-    </joint>
+    
 
     <!-- BASE_FOOTPRINT LINK -->
     <!-- <joint name="base_footprint_joint" type="fixed">
